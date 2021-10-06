@@ -3,7 +3,7 @@
   <thead>
     <tr>
       <th>Title</th>
-      <th>Descripcoin</th>
+      <th>Descripción</th>
       <th>Acciones</th>
 
     </tr>
@@ -13,7 +13,8 @@
       <tr>
         <td><%=un_articulo.title %></td>
         <td><%= un_articulo.description %></td>
-        <td> vacio</td>
+        <td><%= link_to 'Show', article_path(un_articulo) %></td>
+        <td> <%= link_to 'Delete', article_path(un_articulo), method: :delete %></td>
       </tr>
     <% end %>
   </tbody>
