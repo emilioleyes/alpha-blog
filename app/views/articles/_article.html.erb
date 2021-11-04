@@ -1,0 +1,26 @@
+<div class="container">
+  <% @articles.each do |un_articulo| %>
+    <div class="row justify-content-md-center">
+      <div class="col-8 mt-4">
+        <div class="card text-center shadow mb-5 bg-white rounded">
+          <div class="card-header font-italic">
+            Creado por <%= un_articulo.user.username if un_articulo.user %>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"><%= link_to un_articulo.title, article_path(un_articulo), class: "text-success"%></h5>
+            <p class="card-text"><%= truncate(un_articulo.description, length: 100) %></p>
+            <%= link_to "Ver", article_path(un_articulo), class: "btn btn-outline-success" %>
+            <%= link_to "Editar", edit_article_path(un_articulo), class: "btn btn-outline-info" %>
+            <%= link_to "Borrar", article_path(un_articulo), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Esta seguro?"} %>
+          </div>
+          <div class="card-footer text-muted">
+            <small>
+              Creado hace <%=time_ago_in_words(un_articulo.created_at) %>,
+              editado hace <%=time_ago_in_words(un_articulo.updated_at) %>
+            </small>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
