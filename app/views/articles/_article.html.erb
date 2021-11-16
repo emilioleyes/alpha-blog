@@ -12,7 +12,7 @@
             <h5 class="card-title"><%= link_to un_articulo.title, article_path(un_articulo), class: "text-success"%></h5>
             <p class="card-text"><%= truncate(un_articulo.description, length: 100) %></p>
             <%= link_to "Ver", article_path(un_articulo), class: "btn btn-outline-success" %>
-            <% if logged_in? && un_articulo.user == current_user %>
+            <% if logged_in? && (un_articulo.user == current_user || current_user.admin?) %>
               <%= link_to "Editar", edit_article_path(un_articulo), class: "btn btn-outline-info" %>
               <%= link_to "Borrar", article_path(un_articulo), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Esta seguro?"} %>
             <% end %>

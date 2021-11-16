@@ -18,8 +18,9 @@
             </h5>
             <p class="card-text"><%= pluralize(user.articles.count, "article") %></p>
             <%= link_to "Ver perfil", user, class: "btn btn-outline-success" %>
-            <% if logged_in? && user == current_user %>
+            <% if logged_in? && (user == current_user || current_user.admin?) %>
               <%= link_to "Editar perfil", edit_user_path(user), class: "btn btn-outline-info" %>
+              <%= link_to "Borrar perfil", user_path(user), class: "btn btn-outline-danger", method: :delete, data: { confirm: "estás seguro?"} %>
             <% end %>
           </div>
           <div class="card-footer text-muted">
