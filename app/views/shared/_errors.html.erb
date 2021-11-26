@@ -1,7 +1,7 @@
 <% if obj.errors.any? %>
 
   <div class="alert alert-warning alert-dismissible fade show" role="alert">
-    <h4 class="alert-heading">No se guardo el <%=obj.class.name.downcase %> poque: </h4>
+    <h4 class="alert-heading">No se guardo el <%=obj.class.name.downcase %> por los siguientes errores: </h4>
     <ul>
       <% obj.errors.full_messages.each do |msg| %>
         <li> <%= msg %> </li>

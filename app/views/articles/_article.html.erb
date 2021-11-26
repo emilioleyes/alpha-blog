@@ -7,6 +7,9 @@
             <% if un_articulo.user %>
               Creado por <%= link_to un_articulo.user.username, user_path(un_articulo.user) %>
             <% end %>
+            <% if un_articulo.categories.any? %>
+              <div class="mt-2"> <%= render un_articulo.categories %> </div>
+            <% end %>
           </div>
           <div class="card-body">
             <h5 class="card-title"><%= link_to un_articulo.title, article_path(un_articulo), class: "text-success"%></h5>
